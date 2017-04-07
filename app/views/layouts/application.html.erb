@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OjalaBook</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+<body>
+
+	
+  	<nav>
+  		<div class="container">
+	  		<div class="nav-wrapper">
+	  			<a href="#!" class="brand-logo">
+	  				<h4>Ojalabook</h4>
+	  			</a>
+	  			<ul id="nav-mobile" class="right hide-on-med-and-down">
+	  				<li>
+	  					<%= link_to "Status", statuses_path %>
+	  				</li>
+	  				<li>
+	  					<a href="#!">Two</a>
+	  				</li>
+	  				<li>
+	  					<a href="#!">Three</a>
+	  				</li>
+	  			</ul>
+	  		</div>
+		</div>
+  		
+  	</nav>
+
+	<div class="container">
+		<%= yield %>
+	</div>
+    
+</body>
+</html>

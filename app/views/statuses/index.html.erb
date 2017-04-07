@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h4>Todos los estados</h4>
+<hr>
+
+
+<%= link_to "Crear un nuevo Post", new_status_path, class: "waves-effect waves-teal btn-flat"%>
+<% @statuses.each do |variable| %>
+
+
+  <div class="row status">
+    
+    <div class="col m3 s12">
+      <p><%= variable.nombre %></p>
+    </div>
+
+    <div class="col m5 s12">
+      <p><%= variable.contenido %></p>
+    </div>
+    <div class="col s12">
+      <span class="mostrar">
+        <%= link_to "hace " + time_ago_in_words(variable.created_at) +" |", variable%>  
+      </span>
+      
+      <span class="admin">
+          <%= link_to "| Editar", edit_status_path(variable) %> | 
+        <%= link_to "Borrar", variable, method: :delete, data: {confirm: "¿Estas seguro que quieres borrar este estado?"} %>
+      </span>
+    </div>
+  </div>
+<% end  %>
