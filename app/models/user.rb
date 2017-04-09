@@ -9,6 +9,14 @@ class User < ApplicationRecord
 
   has_many :statuses
 
+
+  validates :primer_nombre, presence: true
+  validates :primer_apellido, presence: true
+  validates :nickname, 	presence: true,
+                     	uniqueness: true
+                     	
+
+
   def nombre_completo
 
   	primer_nombre + " " + primer_apellido

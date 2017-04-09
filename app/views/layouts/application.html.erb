@@ -19,7 +19,7 @@
 	  			</a>
 	  			<ul id="nav-mobile" class="right hide-on-med-and-down">
 	  				<li>
-	  					<%= link_to "Status", statuses_path %>
+	  					<%= link_to "Status", timeline_path %>
 	  				</li>
 
 	  				<% if user_signed_in? %>
@@ -29,16 +29,16 @@
 		  				</li>
 
 						<li>
-		  					<%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete %>
+		  					<%= link_to 'Cerrar Sesión', desconectar_path %>
 		  				</li>
 
 		  			<% else %>
 
 			  			<li>
-		  					<%= link_to 'Registrate', new_user_registration_path, method: :get %>
+		  					<%= link_to 'Registrate', registrar_path %>
 		  				</li>
 		  				<li>
-		  					<%= link_to 'Iniciar Sesión', user_session_path, method: :post %>
+		  					<%= link_to 'Iniciar Sesión', inicio_path %>
 		  				</li>
 	  						
 	  				<% end %>
@@ -51,8 +51,16 @@
   	</nav>
 
 	<div class="container">
-		<p class="notice"><%= notice %></p>
-    	<p class="alert"><%= alert %></p>
+
+		<% flash.each do |type, message| %>
+			
+				<script>				
+				  var $toastContent = $('<span><%= message %></span>');
+				  Materialize.toast($toastContent, 5000);        
+				</script>
+			
+		<% end %>
+	
 
 		<%= yield %>
 	</div>
