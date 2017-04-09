@@ -11,7 +11,7 @@
   <div class="row status">
     
     <div class="col m3 s12">
-      <p><%= variable.nombre %></p>
+      <p><%= variable.user_id %></p>
     </div>
 
     <div class="col m5 s12">
@@ -23,7 +23,7 @@
       </span>
       
       <span class="admin">
-          <%= link_to "| Editar", edit_status_path(variable) %> | 
+          <%= link_to "Editar", edit_status_path(variable) %> | 
         <%= link_to "Borrar", variable, method: :delete, data: {confirm: "¿Estas seguro que quieres borrar este estado?"} %>
       </span>
     </div>

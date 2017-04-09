@@ -10,20 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170407192643) do
+ActiveRecord::Schema.define(version: 20170409020808) do
 
   create_table "statuses", force: :cascade do |t|
-    t.string   "nombre"
     t.text     "contenido"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_statuses_on_user_id"
   end
 
-  create_table "usuarios", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "primer_nombre"
-    t.string   "segundo_nombre"
     t.string   "primer_apellido"
-    t.string   "segundo_apellido"
+    t.string   "nickname"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(version: 20170407192643) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.index ["email"], name: "index_usuarios_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end
