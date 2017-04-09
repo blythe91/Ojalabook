@@ -11,7 +11,10 @@
     </div>
   <% end %>
 
-
+  <div class="input-field field">
+    <%= f.collection_select :user_id, User.order(:primer_nombre),:id,:nombre_completo, include_blank: true %>
+    <%= f.label :Usuario %>
+  </div>
   <div class="field">
     <%= f.label :contenido %>
     <%= f.text_area :contenido %>
@@ -20,4 +23,10 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+
+  <script>
+    $(document).ready(function() {
+      $('select').material_select();
+    });
+  </script>
 <% end %>

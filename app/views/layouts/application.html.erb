@@ -21,12 +21,29 @@
 	  				<li>
 	  					<%= link_to "Status", statuses_path %>
 	  				</li>
-	  				<li>
-	  					<a href="#!">Two</a>
-	  				</li>
-	  				<li>
-	  					<a href="#!">Three</a>
-	  				</li>
+
+	  				<% if user_signed_in? %>
+
+	  					<li>
+		  					<%= link_to current_user.nombre_completo, edit_user_registration_path %>
+		  				</li>
+
+						<li>
+		  					<%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete %>
+		  				</li>
+
+		  			<% else %>
+
+			  			<li>
+		  					<%= link_to 'Registrate', new_user_registration_path, method: :get %>
+		  				</li>
+		  				<li>
+		  					<%= link_to 'Iniciar Sesión', user_session_path, method: :post %>
+		  				</li>
+	  						
+	  				<% end %>
+	  				
+	  				
 	  			</ul>
 	  		</div>
 		</div>

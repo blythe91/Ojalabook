@@ -5,5 +5,15 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   attr_accessible :primer_nombre, :primer_apellido, :nickname,
-  						:email, :encrypted_password, :password, :password_confirmation
+  						:email, :password, :password_confirmation
+
+  has_many :statuses
+
+  def nombre_completo
+
+  	primer_nombre + " " + primer_apellido
+
+  end
+
+
 end
